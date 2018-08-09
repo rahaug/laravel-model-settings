@@ -11,11 +11,11 @@ If you're using a later version than Laravel 5.6 add this to your providers in `
 `RolfHaug\ModelSettings\ModelSettingsProvider::class,`
 
 ## Setup - create settings for User model
-Use the artisan comand `make:model-settings` and pass inn the name of the model you want to create settings for.
+Create new setting models with the artisan command.
 
-`php artisan make:model-settings user`
+`art make:model-settings --model=user`
 
-Lastly, add the settings trait to your model:
+Add the settings trait to your model, to complete the integration.
 
 `use RolfHaug\ModelSettings\Settings`;
 
