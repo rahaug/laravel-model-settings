@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class {{CLASS}} extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+
+        Schema::create('{{TABLE}}', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('{{FOREIGN_KEY}}')->references('{{KEY}}')->on('{{PARENT_TABLE}}')->unsigned();
+            $table->string('setting');
+            $table->string('value');
+            $table->timestamps();
+
+            $table->index('{{FOREIGN_KEY}}');
+            $table->index('setting');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(){
+        Schema::dropIfExists('{{TABLE}}');
+    }
+}
