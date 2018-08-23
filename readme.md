@@ -49,7 +49,7 @@ $user = User:find(1);
 // Single setting
 $user->settings->set('newsletter', true);
 
-/ Aarray of settings
+// Array of settings
 $settings = [
 	['awesome_setting' => 'awesome_value'],
 	['another_setting' => 'another_value']
@@ -80,5 +80,4 @@ $users = User::whereSetting('newsletter', true)->get();
 $users = User::whereHasSetting('newsletter')->get();
 
 $users = User::whereDoesntHaveSetting('newsletter')->get();
-
 ```
