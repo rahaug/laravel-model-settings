@@ -66,7 +66,8 @@ class GenerateConfigurationModel extends Command
         $this->info("Creating model settings for " . get_class($model));
 
         // Create Migration
-        $settingsModel = strtolower(class_basename($model)) . "_settings";
+        $settingsClassName = $this->option('model') . "_settings";
+        $settingsModel = strtolower($model->getTable()) . "_settings";
 
         $this->makeMigration($model, $settingsModel);
 
@@ -75,7 +76,8 @@ class GenerateConfigurationModel extends Command
 
         // Create Settings Model
         $this->info("Creating Settings Model");
-        $this->call("make:model", ['name' => studly_case($settingsModel)]);
+        // Create model and check if we need to define $table
+        $this->call("make:model", ['name' => studly_case($modelNamespace . '\\' . $settingsClassName)]);
 
         $this->info("Settings Model for " . get_class($model) . " was successfully Created.");
 
@@ -86,7 +88,7 @@ class GenerateConfigurationModel extends Command
     protected function makeModel($resource, $modelNamespace)
     {
         try {
-            $modelNamespace = addslashes(rtrim(studly_case($modelNamespace), "\\"));
+            $modelNamespace = str_replace('\\\\', '\\', (rtrim(studly_case($modelNamespace), "\\")));
             $model = App::make("\\" . $modelNamespace . "\\" . studly_case($resource));
         }
 
