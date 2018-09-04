@@ -27,7 +27,7 @@
     "autoload": {
         "psr-4": {
             "RolfHaug\\ModelSettings\\": "src/",
-            "RolfHaug\\ModelSettings\\Commands\\": "src/commands"
+            "RolfHaug\\ModelSettings\\Commands\\": "src/commands/"
         }
     },
     "autoload-dev": {
