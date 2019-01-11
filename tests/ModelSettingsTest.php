@@ -1,15 +1,11 @@
 <?php
 
 use Faker\Factory;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use RolfHaug\ModelSettings\ModelSettings;
 use RolfHaug\ModelSettings\Tests\UserSettings;
 
-class ModelSettingsTest extends BaseTestCase
+class ModelSettingsTest extends TestCase
 {
-    use DatabaseTransactions;
-    use DatabaseMigrations;
 
     /**
      * Create a new fake user and return the settings
