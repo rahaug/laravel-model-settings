@@ -5,7 +5,7 @@ namespace RolfHaug\ModelSettings;
 use Illuminate\Support\ServiceProvider;
 use RolfHaug\ModelSettings\Commands\GenerateConfigurationModel;
 
-class ModelSettingsProvider extends ServiceProvider
+class ModelSettingsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
